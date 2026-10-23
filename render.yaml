@@ -1,0 +1,14 @@
+# Render.com blueprint: backend + frontend bitta bepul web-servisda
+services:
+  - type: web
+    name: mexrify
+    runtime: node
+    plan: free
+    buildCommand: npm install --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: YOUTUBE_API_KEY
+        sync: false
